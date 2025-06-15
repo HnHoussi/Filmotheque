@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import fr.eni.tp.filmotheque.bll.FilmService;
-import fr.eni.tp.filmotheque.bo.Avis;
-import fr.eni.tp.filmotheque.bo.Film;
-import fr.eni.tp.filmotheque.bo.Genre;
-import fr.eni.tp.filmotheque.bo.Membre;
-import fr.eni.tp.filmotheque.bo.Participant;
+import fr.eni.ecole.filmotheque.bll.FilmService;
+import fr.eni.ecole.filmotheque.bo.Avis;
+import fr.eni.ecole.filmotheque.bo.Film;
+import fr.eni.ecole.filmotheque.bo.Genre;
+import fr.eni.ecole.filmotheque.bo.Membre;
+import fr.eni.ecole.filmotheque.bo.Participant;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
+@Profile("dev")
+@Service
 public class FilmServiceBouchon implements FilmService {
 	// Attributs statiques pour gérer les valeurs à afficher et simuler les données
 	// en base
