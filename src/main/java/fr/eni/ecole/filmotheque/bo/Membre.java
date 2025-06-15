@@ -14,23 +14,27 @@ public class Membre extends Personne {
 
     //constructor with all attributes
     public Membre(String pseudo, String motDePasse, Boolean admin) {
+        this(null, null, pseudo, motDePasse, admin);
+    }
+
+    //constructor with all attributes and parent attributes
+    public Membre(long id, String nom, String prenom, String pseudo, String motDePasse, Boolean admin) {
+        super(id, nom, prenom);
         this.pseudo = pseudo;
         this.motDePasse = motDePasse;
         this.admin = admin;
     }
 
-    //constructor with all attributes and parent attributes
-    public Membre(long id, String nom, String prenom, String pseudo, String motDePasse, Boolean admin) {
-        this(pseudo, motDePasse, admin);
-        super.setId(id);
-    }
-
     //constructor with all attributes and parent attributes except the id
     public Membre(String nom, String prenom, String pseudo, String motDePasse, Boolean admin) {
-        this(pseudo, motDePasse, admin);
-        super.setNom(nom);
-        super.setPrenom(prenom);
+        this(0, nom, prenom, pseudo, motDePasse, admin);
     }
+
+    //constructor used in the ihm layer
+    public Membre(long id, String nom, String prenom, String motDePasse, Boolean admin) {
+        this(0, nom, prenom, null, motDePasse, admin);
+    }
+
 
     public String getPseudo() {
         return pseudo;

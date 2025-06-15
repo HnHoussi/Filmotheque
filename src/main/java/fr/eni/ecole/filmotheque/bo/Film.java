@@ -21,6 +21,7 @@ public class Film {
         this.avis = new ArrayList<>();
     }
 
+
     // constructor with all attributes
     public Film(long id, String titre, int annee, int duree, String synopsis, Participant realisateur, List<Participant> acteurs, Genre genre, List<Avis> avis) {
         this.id = id;
@@ -37,6 +38,17 @@ public class Film {
     // constructor with all attributes except the id
     public Film(String titre, int annee, int duree, String synopsis, Participant realisateur, List<Participant> acteurs, Genre genre, List<Avis> avis) {
         this(0, titre, annee, duree, synopsis, realisateur, acteurs, genre, avis);
+    }
+
+    //constructer used in the ihm layer
+    public Film(long id, String titre, int annee, int duree, String synopsis) {
+        this.id = id;
+        this.titre = titre;
+        this.annee = annee;
+        this.duree = duree;
+        this.synopsis = synopsis;
+        this.acteurs = new ArrayList<>();
+        this.avis = new ArrayList<>();
     }
 
     public long getId() {
