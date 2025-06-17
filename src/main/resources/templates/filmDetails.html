@@ -1,59 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>TP ENI</title>
-    <link rel="stylesheet" th:href="@{/styles.css}">
-</head>
+<html  xmlns:th="http://www.thymeleaf.org" lang="fr"
+       data-th-replace="~{layouts/layout :: layout-filmotheque(
+                        contenuPage=~{:: main},
+                        ressourcesSupp=~{})}">
+
 <body>
-    <nav>
-        <div class="brand">Filmothèque</div>
-        <div class="nav-links">
-            <a th:href="@{/films}">Films</a>
-        </div>
-    </nav>
+   <main>
+       <div class="center-title">
+           <h1>Détail du film</h1>
+       </div>
 
-    <div class="center-title">
-        <h1>Détail du film</h1>
-    </div>
-
-    <table>
-        <tr>
-            <th>Genre</th>
-            <td th:text="${film.getGenre()}"></td>
-        </tr>
-        <tr>
-            <th>Année</th>
-            <td th:text="${film.getAnnee()}"></td>
-        </tr>
-        <tr>
-            <th>Titre</th>
-            <td th:text="${film.getTitre()}"></td>
-        </tr>
-        <tr>
-            <th>Réalisateur</th>
-            <td th:text="${film.realisateur.getNom() + ' ' + film.realisateur.getPrenom()}"></td>
-        </tr>
-        <tr>
-            <th>Acteurs</th>
-            <td>
-                <ul>
-                    <li th:each="acteur : ${film.getActeurs()}"
-                        th:text="${acteur.getPrenom() + ' ' + acteur.getNom()}">
-                        Acteur
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>Synopsis</th>
-            <td th:text="${film.getSynopsis()}"></td>
-        </tr>
-        <tr>
-            <th>Durée</th>
-            <td th:text="${film.getDuree()}"></td>
-        </tr>
-    </table>
+       <table>
+           <tr>
+               <th>Genre</th>
+               <td th:text="${film.genre.getTitre()}"></td>
+           </tr>
+           <tr>
+               <th>Année</th>
+               <td th:text="${film.getAnnee()}"></td>
+           </tr>
+           <tr>
+               <th>Titre</th>
+               <td th:text="${film.getTitre()}"></td>
+           </tr>
+           <tr>
+               <th>Réalisateur</th>
+               <td th:text="${film.realisateur.getNom() + ' ' + film.realisateur.getPrenom()}"></td>
+           </tr>
+           <tr>
+               <th>Acteurs</th>
+               <td>
+                   <ul>
+                       <li th:each="acteur : ${film.getActeurs()}"
+                           th:text="${acteur.getPrenom() + ' ' + acteur.getNom()}">
+                           Acteur
+                       </li>
+                   </ul>
+               </td>
+           </tr>
+           <tr>
+               <th>Synopsis</th>
+               <td th:text="${film.getSynopsis()}"></td>
+           </tr>
+           <tr>
+               <th>Durée</th>
+               <td th:text="${film.getDuree() + ' minutes'}"></td>
+           </tr>
+       </table>
+   </main>
 
 </body>
 </html>

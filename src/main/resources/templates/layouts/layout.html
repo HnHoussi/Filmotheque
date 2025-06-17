@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- Déclaration du fragment principal – le layout layout-demo -->
+<html xmlns:th="http://www.thymeleaf.org"
+      data-th-fragment="layout-filmotheque(contenuPage, ressourcesSupp)"  lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TP ENI</title>
+  <!-- Ajout de la CSS pour le layout -->
+  <link rel="stylesheet" data-th-href="@{/css/layout.css}">
+  <!-- Permettre d’ajouter ou non des ressources CSS -->
+  <th:block data-th-replace="${ressourcesSupp} ?: ~{}"></th:block>
+</head>
+  <body>
+    <!-- Intégration du fragment d'entête -->
+    <div data-th-replace="~{fragments/fragment-entete :: frag-entete}"></div>
+
+    <!-- Rendre variable le contenu de la page -->
+    <main data-th-replace="${contenuPage} ?: ~{}">
+      Contenu de la page
+    </main>
+  </body>
+</html>

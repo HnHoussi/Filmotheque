@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org" lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>TP ENI</title>
-    <link rel="stylesheet" th:href="@{/styles.css}">
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      data-th-replace="~{layouts/layout :: layout-filmotheque(
+                    contenuPage=~{:: main},
+                    ressourcesSupp=~{})}" lang="fr">
+
 <body>
-
-    <nav>
-        <div class="brand">Filmothèque</div>
-        <div class="nav-links">
-            <a th:href="@{/films}">Films</a>
+    <main >
+        <div class="center-title">
+            <h1>Voici la bibliothèque des Films de ENI Ecole</h1>
         </div>
-    </nav>
-
-    <div class="center-title">
-        <h1>Voici la bibliothèque des Films de ENI Ecole</h1>
-    </div>
-
+    </main>
 </body>
 </html>

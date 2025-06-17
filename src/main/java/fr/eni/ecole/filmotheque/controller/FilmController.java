@@ -25,6 +25,7 @@ public class FilmController {
         return "index";
     }
 
+    //Afficher tous les films
     @GetMapping("/films")
     public String filmsPage(Model model) {
         List<Film> films = filmService.consulterFilms();
@@ -32,25 +33,19 @@ public class FilmController {
 
         return "films";
     }
+
+    //afficher le film par id en cliquant sur le bouton Détails
     @GetMapping("/films/details")
     public String detailsPage(@RequestParam long id, Model model) {
         Film film = filmService.consulterFilmParId(id);
+        //ajouter le param id de film dans l'url
         model.addAttribute("film", film);
 
-        return "filmDetails";
+        if (film != null) {
+            return "filmDetails";
+        } else {
+            return "redirect:/films";
+        }
     }
-
-//    public void afficherFilms() {
-//
-//        System.out.println("Tous les film");
-//        List<Film> films = filmService.consulterFilms();
-//        films.forEach(System.out::println);
-//    }
-//
-//    public void afficherUnFilm(long id) {
-//        System.out.println("Film Par Id");
-//        Film film = filmService.consulterFilmParId(id);
-//        System.out.println(film);
-//    }
 
 }

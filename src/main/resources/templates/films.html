@@ -1,24 +1,14 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org" lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>TP ENI</title>
-    <link rel="stylesheet" th:href="@{/styles.css}">
-</head>
+
+<html  xmlns:th="http://www.thymeleaf.org" lang="fr"
+        data-th-replace="~{layouts/layout :: layout-filmotheque(
+                        contenuPage=~{:: main},
+                        ressourcesSupp=~{})}">
+
 <body>
-    <nav>
-        <div class="brand">Filmothèque</div>
-        <div class="nav-links">
-            <a th:href="@{/films}">Films</a>
-        </div>
-    </nav>
-
-    <div class="center-title">
-        <h1>Les films de l'ENI</h1>
-    </div>
-
-    <table>
-        <thead>
+    <main>
+        <table>
+            <thead>
             <tr>
                 <th>Genre</th>
                 <th>Année</th>
@@ -26,21 +16,22 @@
                 <th>Réalisateur</th>
                 <th>Action</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <tr th:each="film : ${films}">
-                <td th:text="${film.getGenre()}"></td>
+                <td th:text="${film.genre.getTitre()}"></td>
                 <td th:text="${film.getAnnee()}"></td>
                 <td th:text="${film.getTitre()}"></td>
-                <td th:text="${film.getRealisateur()}"></td>
+                <td th:text="${film.realisateur.getPrenom() + ' ' + film.realisateur.getPrenom()}"></td>
                 <td>
                     <a th:href="@{'/films/details' (id=${film.getId()})}">
                         <button>Détails</button>
                     </a>
                 </td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </main>
 
 </body>
 </html>
