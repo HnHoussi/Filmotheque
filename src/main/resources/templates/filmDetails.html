@@ -32,7 +32,7 @@
                <td>
                    <ul>
                        <li th:each="acteur : ${film.getActeurs()}"
-                           th:text="${acteur.getPrenom() + ' ' + acteur.getNom()}">
+                           th:text="${acteur.prenom + ' ' + acteur.nom}">
                        </li>
                    </ul>
                </td>
